@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Productivity App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Pomodoro Timer</h1>
+            <p class="subtitle">Focus. Work. Achieve.</p>
+        </header>
+
+        <main>
+            <div class="mode-indicator">
+                <span id="currentMode">Work Session</span>
+            </div>
+
+            <div class="timer-container">
+                <svg class="progress-ring" width="300" height="300">
+                    <circle class="progress-ring-bg" cx="150" cy="150" r="130"></circle>
+                    <circle class="progress-ring-circle" cx="150" cy="150" r="130"></circle>
+                </svg>
+                <div class="timer-display">
+                    <span id="timerDisplay">25:00</span>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="startBtn" class="btn btn-primary">Start</button>
+                <button id="pauseBtn" class="btn btn-secondary" disabled>Pause</button>
+                <button id="resetBtn" class="btn btn-secondary">Reset</button>
+                <button id="skipBtn" class="btn btn-secondary">Skip</button>
+            </div>
+
+            <div class="session-tracker">
+                <p>Sessions Completed: <span id="sessionCount">0</span></p>
+                <div class="session-dots" id="sessionDots"></div>
+            </div>
+
+            <button id="settingsToggle" class="btn-settings">⚙️ Settings</button>
+
+            <div id="settingsPanel" class="settings-panel hidden">
+                <h3>Timer Settings</h3>
+                <div class="setting-item">
+                    <label for="workDuration">Work Duration (minutes):</label>
+                    <input type="number" id="workDuration" min="1" max="60" value="25">
+                </div>
+                <div class="setting-item">
+                    <label for="shortBreak">Short Break (minutes):</label>
+                    <input type="number" id="shortBreak" min="1" max="30" value="5">
+                </div>
+                <div class="setting-item">
+                    <label for="longBreak">Long Break (minutes):</label>
+                    <input type="number" id="longBreak" min="1" max="60" value="15">
+                </div>
+                <div class="setting-item">
+                    <label for="autoStart">
+                        <input type="checkbox" id="autoStart">
+                        Auto-start next session
+                    </label>
+                </div>
+                <button id="saveSettings" class="btn btn-primary">Save Settings</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
